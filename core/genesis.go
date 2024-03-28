@@ -358,6 +358,7 @@ func DefaultGenesisBlock() *Genesis {
 		GasLimit:   0x280de80,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(mainnetAllocData),
+		BaseFee:    big.NewInt(5000000000),
 	}
 }
 
@@ -370,6 +371,7 @@ func DefaultTestnetGenesisBlock() *Genesis {
 		GasLimit:   0x280de80,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(testnetAllocData),
+		BaseFee:    big.NewInt(5000000000),
 	}
 }
 
