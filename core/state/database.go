@@ -20,11 +20,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/core/rawdb"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/ethdb"
+	"github.com/BIZchain-labs/biz-node/trie"
 	lru "github.com/hashicorp/golang-lru"
 )
 

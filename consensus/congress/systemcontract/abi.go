@@ -1,9 +1,9 @@
 package systemcontract
 
 import (
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/BIZchain-labs/biz-node/accounts/abi"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/params"
 	"math/big"
 	"strings"
 )

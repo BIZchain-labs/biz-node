@@ -23,13 +23,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/core"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/eth/protocols/eth"
+	"github.com/BIZchain-labs/biz-node/log"
+	"github.com/BIZchain-labs/biz-node/p2p/enode"
+	"github.com/BIZchain-labs/biz-node/trie"
 )
 
 // ethHandler implements the eth.Backend interface to handle the various network

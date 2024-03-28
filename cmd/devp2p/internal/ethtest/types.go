@@ -20,10 +20,10 @@ import (
 	"crypto/ecdsa"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/rlpx"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/BIZchain-labs/biz-node/eth/protocols/eth"
+	"github.com/BIZchain-labs/biz-node/p2p"
+	"github.com/BIZchain-labs/biz-node/p2p/rlpx"
+	"github.com/BIZchain-labs/biz-node/rlp"
 )
 
 type Message interface {

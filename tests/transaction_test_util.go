@@ -19,12 +19,12 @@ package tests
 import (
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/common/hexutil"
+	"github.com/BIZchain-labs/biz-node/core"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/params"
+	"github.com/BIZchain-labs/biz-node/rlp"
 )
 
 // TransactionTest checks RLP decoding and sender derivation of transactions.

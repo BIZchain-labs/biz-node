@@ -24,16 +24,16 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/core/forkid"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/les/downloader"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/common/mclock"
+	"github.com/BIZchain-labs/biz-node/core/forkid"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/eth/protocols/eth"
+	"github.com/BIZchain-labs/biz-node/les/downloader"
+	"github.com/BIZchain-labs/biz-node/light"
+	"github.com/BIZchain-labs/biz-node/log"
+	"github.com/BIZchain-labs/biz-node/p2p"
+	"github.com/BIZchain-labs/biz-node/params"
 )
 
 // clientHandler is responsible for receiving and processing all incoming server

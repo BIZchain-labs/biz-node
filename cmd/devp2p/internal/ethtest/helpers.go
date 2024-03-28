@@ -24,13 +24,13 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/eth/protocols/eth"
-	"github.com/ethereum/go-ethereum/internal/utesting"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/rlpx"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/crypto"
+	"github.com/BIZchain-labs/biz-node/eth/protocols/eth"
+	"github.com/BIZchain-labs/biz-node/internal/utesting"
+	"github.com/BIZchain-labs/biz-node/p2p"
+	"github.com/BIZchain-labs/biz-node/p2p/rlpx"
 )
 
 var (

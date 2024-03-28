@@ -22,17 +22,17 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	l "github.com/ethereum/go-ethereum/les"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/consensus/ethash"
+	"github.com/BIZchain-labs/biz-node/core"
+	"github.com/BIZchain-labs/biz-node/core/rawdb"
+	"github.com/BIZchain-labs/biz-node/core/types"
+	"github.com/BIZchain-labs/biz-node/core/vm"
+	"github.com/BIZchain-labs/biz-node/crypto"
+	l "github.com/BIZchain-labs/biz-node/les"
+	"github.com/BIZchain-labs/biz-node/params"
+	"github.com/BIZchain-labs/biz-node/rlp"
+	"github.com/BIZchain-labs/biz-node/trie"
 )
 
 var (

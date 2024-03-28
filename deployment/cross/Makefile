@@ -1,6 +1,6 @@
 PROJECT_ROOT_DIR = ../..
-ENTRY_FILE_GETH_DIR = github.com/ethereum/go-ethereum/cmd/geth
-ENTRY_FILE_BOOTNODE_DIR = github.com/ethereum/go-ethereum/cmd/bootnode
+ENTRY_FILE_GETH_DIR = github.com/BIZchain-labs/biz-node/cmd/geth
+ENTRY_FILE_BOOTNODE_DIR = github.com/BIZchain-labs/biz-node/cmd/bootnode
 GROUP_NAME = hecochain.com
 SERVICE_NAME_BOOTNODE = bootnode
 SERVICE_NAME_MINER = miner

@@ -19,7 +19,7 @@ package snapshot
 import (
 	"bytes"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/BIZchain-labs/biz-node/common"
 )
 
 // binaryIterator is a simplistic iterator to step over the accounts or storage

@@ -1,9 +1,9 @@
 package congress
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/BIZchain-labs/biz-node/consensus"
+	"github.com/BIZchain-labs/biz-node/core/types"
 )
 
 type chainContext struct {

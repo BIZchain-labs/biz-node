@@ -1,4 +1,4 @@
-module github.com/ethereum/go-ethereum
+module github.com/BIZchain-labs/biz-node
 
 go 1.15
 

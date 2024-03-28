@@ -27,10 +27,10 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/BIZchain-labs/biz-node/crypto"
+	"github.com/BIZchain-labs/biz-node/log"
+	"github.com/BIZchain-labs/biz-node/p2p/enode"
+	"github.com/BIZchain-labs/biz-node/p2p/enr"
 )
 
 var nullNode *enode.Node

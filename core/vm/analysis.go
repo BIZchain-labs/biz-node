@@ -17,7 +17,7 @@
 package vm
 
 import (
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/BIZchain-labs/biz-node/common"
 	lru "github.com/hashicorp/golang-lru"
 )
 

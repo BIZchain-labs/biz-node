@@ -22,7 +22,7 @@ package keystore
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/rjeczalik/notify"
 )
 

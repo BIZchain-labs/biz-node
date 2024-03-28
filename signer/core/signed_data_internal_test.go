@@ -21,7 +21,7 @@ package core
 // 	"math/big"
 // 	"testing"
 
-// 	"github.com/ethereum/go-ethereum/common/hexutil"
+// 	"github.com/BIZchain-labs/biz-node/common/hexutil"
 // )
 
 // func TestBytesPadding(t *testing.T) {

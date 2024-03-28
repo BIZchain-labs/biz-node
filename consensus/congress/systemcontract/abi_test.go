@@ -1,7 +1,7 @@
 package systemcontract
 
 import (
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/BIZchain-labs/biz-node/accounts/abi"
 	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"

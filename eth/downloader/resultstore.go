@@ -21,7 +21,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/BIZchain-labs/biz-node/core/types"
 )
 
 // resultStore implements a structure for maintaining fetchResults, tracking their

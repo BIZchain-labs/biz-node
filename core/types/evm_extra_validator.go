@@ -1,6 +1,6 @@
 package types
 
-import "github.com/ethereum/go-ethereum/common"
+import "github.com/BIZchain-labs/biz-node/common"
 
 // EvmExtraValidator contains some extra validations to a transaction,
 // and the validator is used inside the evm.

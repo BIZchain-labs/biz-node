@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/ethstats"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/les"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/nat"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/BIZchain-labs/biz-node/core"
+	"github.com/BIZchain-labs/biz-node/eth/downloader"
+	"github.com/BIZchain-labs/biz-node/eth/ethconfig"
+	"github.com/BIZchain-labs/biz-node/ethclient"
+	"github.com/BIZchain-labs/biz-node/ethstats"
+	"github.com/BIZchain-labs/biz-node/internal/debug"
+	"github.com/BIZchain-labs/biz-node/les"
+	"github.com/BIZchain-labs/biz-node/node"
+	"github.com/BIZchain-labs/biz-node/p2p"
+	"github.com/BIZchain-labs/biz-node/p2p/nat"
+	"github.com/BIZchain-labs/biz-node/params"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Geth
