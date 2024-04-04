@@ -55,8 +55,8 @@ var (
                 IstanbulBlock:       big.NewInt(0),
                 MuirGlacierBlock:    nil,
                 //      RedCoastBlock:       big.NewInt(99),
-                BerlinBlock: big.NewInt(0),
-                //      LondonBlock:         big.NewInt(100),
+                BerlinBlock: 	     big.NewInt(0),
+        	LondonBlock:         big.NewInt(0),
                 //      SophonBlock:         big.NewInt(100),
                 ArrowGlacierBlock: nil,
 
@@ -83,8 +83,8 @@ var (
                 IstanbulBlock:       big.NewInt(0),
                 MuirGlacierBlock:    nil,
                 //RedCoastBlock:       big.NewInt(99),
-                BerlinBlock: big.NewInt(100),
-                //LondonBlock:         big.NewInt(100),
+                BerlinBlock: big.NewInt(0),
+                LondonBlock:         big.NewInt(0),
                 //SophonBlock:         big.NewInt(100),
                 Congress: &CongressConfig{
                         Period: 1,
