@@ -20,15 +20,11 @@ import "github.com/BIZchain-labs/biz-node/common"
 
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
 // the main Ethereum network.
-var MainnetBootnodes = []string{
-	
-}
+var MainnetBootnodes = []string{}
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
 var TestnetBootnodes = []string{
-	"enode://af6a3f6693c0cac25d512d19182b8934c35ece74d65e4e47b4881cac695dda714d4554b7b5987cc5a183de6622a1ae525cd854452f0367025b0acf8036bee5b6@38.180.106.246:30000",
-    "enode://bf598ad7bb2008171d81145996cc821daaeaeb9f97d2786728d0daa6ef1d90cb3eaf1c99efdb2dff87f0960c7d5cd00fc429ff8eff06a95dd05c6555b1b2fcfc@38.180.106.246:30361",
-    "enode://b43d5cb5f86e104714e3a5f67273ffe08b7ee35ccecad2727a59762a2e0ff576394ce82ee801d506bccee70d837c109fa9a59e359d427a8ba05d39d001aabf89@38.180.106.246:30312",
+	"enode://b5c1baa446cc53c451f8a416a275f653536815b9ebf7fb02bfca137dd6cf4a1e2d315a1248b465abf7cd99c6c83c388c9c962f1d69277ffdcdcf4de0c1eb364c@38.180.106.150:32668",
 }
 
 var V5Bootnodes = []string{}
