@@ -1,43 +1,3 @@
-// Copyright 2016 The go-ethereum Authors
-// This file is part of the go-ethereum library.
-//
-// The go-ethereum library is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// The go-ethereum library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-// GNU Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public License
-// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
-
-//go:build none
-// +build none
-
-/*
-The ci command is called from Continuous Integration scripts.
-
-Usage: go run build/ci.go <command> <command flags/arguments>
-
-Available commands are:
-
-   install    [ -arch architecture ] [ -cc compiler ] [ packages... ]                          -- builds packages and executables
-   test       [ -coverage ] [ packages... ]                                                    -- runs the tests
-   lint                                                                                        -- runs certain pre-selected linters
-   archive    [ -arch architecture ] [ -type zip|tar ] [ -signer key-envvar ] [ -signify key-envvar ] [ -upload dest ] -- archives build artifacts
-   importkeys                                                                                  -- imports signing keys from env
-   debsrc     [ -signer key-id ] [ -upload dest ]                                              -- creates a debian source package
-   nsis                                                                                        -- creates a Windows NSIS installer
-   aar        [ -local ] [ -sign key-id ] [-deploy repo] [ -upload dest ]                      -- creates an Android archive
-   xcode      [ -local ] [ -sign key-id ] [-deploy repo] [ -upload dest ]                      -- creates an iOS XCode framework
-   purge      [ -store blobstore ] [ -days threshold ]                                         -- purges old archives from the blobstore
-
-For all commands, -n prevents execution of external programs (dry run mode).
-
-*/
 package main
 
 import (
@@ -58,17 +18,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cespare/cp"
 	"github.com/BIZchain-labs/biz-node/crypto/signify"
 	"github.com/BIZchain-labs/biz-node/internal/build"
 	"github.com/BIZchain-labs/biz-node/params"
+	"github.com/cespare/cp"
 )
 
 var (
 	// Files that end up in the geth*.zip archive.
 	gethArchiveFiles = []string{
 		"COPYING",
-		executablePath("geth"),
+		executablePath("biz"),
 	}
 
 	// Files that end up in the geth-alltools*.zip archive.
@@ -77,7 +37,7 @@ var (
 		executablePath("abigen"),
 		executablePath("bootnode"),
 		executablePath("evm"),
-		executablePath("geth"),
+		executablePath("biz"),
 		executablePath("puppeth"),
 		executablePath("rlpdump"),
 		executablePath("clef"),
@@ -98,8 +58,8 @@ var (
 			Description: "Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode.",
 		},
 		{
-			BinaryName:  "geth",
-			Description: "Ethereum CLI client.",
+			BinaryName:  "biz",
+			Description: "BIZ CLI client.",
 		},
 		{
 			BinaryName:  "puppeth",
@@ -117,7 +77,7 @@ var (
 
 	// A debian package is created for all executables listed here.
 	debEthereum = debPackage{
-		Name:        "ethereum",
+		Name:        "biz",
 		Version:     params.Version,
 		Executables: debExecutables,
 	}
@@ -132,7 +92,7 @@ var (
 	// Note: the following Ubuntu releases have been officially deprecated on Launchpad:
 	//   wily, yakkety, zesty, artful, cosmic, disco, eoan, groovy
 	debDistroGoBoots = map[string]string{
-		"trusty":  "golang-1.11",
+		"trusty":  "golang-1.21",
 		"xenial":  "golang-go",
 		"bionic":  "golang-go",
 		"focal":   "golang-go",
@@ -369,7 +329,7 @@ func doArchive(cmdline []string) {
 	var (
 		env      = build.Env()
 		basegeth = archiveBasename(*arch, params.ArchiveVersion(env.Commit))
-		geth     = "geth-" + basegeth + ext
+		geth     = "biz-" + basegeth + ext
 		alltools = "geth-alltools-" + basegeth + ext
 	)
 	maybeSkipArchive(env)

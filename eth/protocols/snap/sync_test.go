@@ -22,7 +22,6 @@ import (
 	"encoding/binary"
 	"fmt"
 	"math/big"
-	mrand "math/rand"
 	"sort"
 	"sync"
 	"testing"
@@ -37,7 +36,6 @@ import (
 	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/BIZchain-labs/biz-node/rlp"
 	"github.com/BIZchain-labs/biz-node/trie"
-	"github.com/BIZchain-labs/biz-node/trie/testutil"
 	"golang.org/x/crypto/sha3"
 )
 
@@ -369,7 +367,8 @@ func createStorageRequestResponse(t *testPeer, root common.Hash, accounts []comm
 	return hashes, slots, proofs
 }
 
-//  the createStorageRequestResponseAlwaysProve tests a cornercase, where it always
+//	the createStorageRequestResponseAlwaysProve tests a cornercase, where it always
+//
 // supplies the proof for the last account, even if it is 'complete'.h
 func createStorageRequestResponseAlwaysProve(t *testPeer, root common.Hash, accounts []common.Hash, bOrigin, bLimit []byte, max uint64) (hashes [][]common.Hash, slots [][][]byte, proofs [][]byte) {
 	var size uint64
