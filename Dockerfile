@@ -7,12 +7,12 @@ ARG BUILDNUM=""
 FROM golang:1.16-buster as builder
 
 ADD . /go-ethereum
-RUN cd /go-ethereum && go run build/ci.go install ./cmd/geth
+RUN cd /go-ethereum && go run build/ci.go install ./cmd/biz
 
 # Pull Geth into a second stage deploy alpine container
 FROM ubuntu:18.04
 
-COPY --from=builder /go-ethereum/build/bin/geth /usr/local/bin/
+COPY --from=builder /go-ethereum/build/bin/biz /usr/local/bin/
 
 EXPOSE 8545 8546 30303 30303/udp
 ENTRYPOINT ["biz"]

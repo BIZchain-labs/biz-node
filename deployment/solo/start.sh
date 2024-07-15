@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./build/bin/geth \
+./build/bin/biz \
 --datadir data \
 --port 20301 \
 --mine \

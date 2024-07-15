@@ -16,7 +16,7 @@
 
 // Contains all the wrappers from the params package.
 
-package geth
+package biz
 
 import (
 	"github.com/BIZchain-labs/biz-node/p2p/enode"

@@ -35,13 +35,13 @@ var (
 )
 
 func TestEthSuite(t *testing.T) {
-	geth, err := runGeth()
+	biz, err := runGeth()
 	if err != nil {
-		t.Fatalf("could not run geth: %v", err)
+		t.Fatalf("could not run biz: %v", err)
 	}
-	defer geth.Close()
+	defer biz.Close()
 
-	suite, err := NewSuite(geth.Server().Self(), fullchainFile, genesisFile)
+	suite, err := NewSuite(biz.Server().Self(), fullchainFile, genesisFile)
 	if err != nil {
 		t.Fatalf("could not create new test suite: %v", err)
 	}
@@ -55,7 +55,7 @@ func TestEthSuite(t *testing.T) {
 	}
 }
 
-// runGeth creates and starts a geth node
+// runGeth creates and starts a biz node
 func runGeth() (*node.Node, error) {
 	stack, err := node.New(&node.Config{
 		P2P: p2p.Config{

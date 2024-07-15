@@ -27,7 +27,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/BIZchain-labs/biz-node/accounts"
 	"github.com/BIZchain-labs/biz-node/accounts/abi"
 	"github.com/BIZchain-labs/biz-node/accounts/keystore"
@@ -49,6 +48,7 @@ import (
 	"github.com/BIZchain-labs/biz-node/params"
 	"github.com/BIZchain-labs/biz-node/rlp"
 	"github.com/BIZchain-labs/biz-node/rpc"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/tyler-smith/go-bip39"
 )
 
@@ -640,7 +640,7 @@ func (s *PrivateAccountAPI) InitializeWallet(ctx context.Context, url string) (s
 	}
 }
 
-// Unpair deletes a pairing between wallet and geth.
+// Unpair deletes a pairing between wallet and biz.
 func (s *PrivateAccountAPI) Unpair(ctx context.Context, url string, pin string) error {
 	wallet, err := s.am.Wallet(url)
 	if err != nil {
@@ -807,10 +807,10 @@ func (s *PublicBlockChainAPI) GetHeaderByHash(ctx context.Context, hash common.H
 }
 
 // GetBlockByNumber returns the requested canonical block.
-// * When blockNr is -1 the chain head is returned.
-// * When blockNr is -2 the pending chain head is returned.
-// * When fullTx is true all transactions in the block are returned, otherwise
-//   only the transaction hash is returned.
+//   - When blockNr is -1 the chain head is returned.
+//   - When blockNr is -2 the pending chain head is returned.
+//   - When fullTx is true all transactions in the block are returned, otherwise
+//     only the transaction hash is returned.
 func (s *PublicBlockChainAPI) GetBlockByNumber(ctx context.Context, number rpc.BlockNumber, fullTx bool) (map[string]interface{}, error) {
 	block, err := s.b.BlockByNumber(ctx, number)
 	if block != nil && err == nil {
@@ -1910,7 +1910,8 @@ func (s *PublicTransactionPoolAPI) SendRawTransaction(ctx context.Context, input
 	return SubmitTransaction(ctx, s.b, tx)
 }
 
-/**
+/*
+*
 check tx meta transaction format.
 */
 func metaTransactionCheck(ctx context.Context, tx *types.Transaction, b Backend) error {
@@ -2205,7 +2206,6 @@ func (api *PrivateDebugAPI) ChaindbProperty(property string) (string, error) {
 // removing all unused slots and merging all keys.
 func (api *PrivateDebugAPI) ChaindbCompact() error {
 
-
 	// for b := byte(0); b < 255; b++ {
 	// 	log.Info("Compacting chain database", "range", fmt.Sprintf("0x%0.2X-0x%0.2X", b, b+1))
 	// 	if err := api.b.ChainDb().Compact([]byte{b}, []byte{b + 1}); err != nil {
@@ -2222,8 +2222,6 @@ func (api *PrivateDebugAPI) ChaindbCompact() error {
 		log.Info("Compacting database", "range", fmt.Sprintf("%#X-%#X", start, end), "elapsed", common.PrettyDuration(time.Since(cstart)))
 		if err := api.b.ChainDb().Compact(start, end); err != nil {
 
-
-
 			log.Error("Database compaction failed", "err", err)
 			return err
 		}
@@ -2231,13 +2229,13 @@ func (api *PrivateDebugAPI) ChaindbCompact() error {
 	return nil
 }
 
-//TODO warning delete this when online
+// TODO warning delete this when online
 func (api *PrivateDebugAPI) GetPoolNonce(ctx context.Context, address string) (*hexutil.Uint64, error) {
 	nonce, err := api.b.GetPoolNonce(ctx, common.HexToAddress(address))
 	return (*hexutil.Uint64)(&nonce), err
 }
 
-//TODO warning delete this when online
+// TODO warning delete this when online
 func (api *PrivateDebugAPI) SendTransactions(ctx context.Context, signedTxs []*types.Transaction) ([]string, error) {
 	var txsHash = make([]string, len(signedTxs))
 	if len(signedTxs) == 0 {

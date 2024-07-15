@@ -47,7 +47,7 @@ const (
 // all registered services.
 type Config struct {
 	// Name sets the instance name of the node. It must not contain the / character and is
-	// used in the devp2p node identifier. The instance name of geth is "biz". If no
+	// used in the devp2p node identifier. The instance name of biz is "biz". If no
 	// value is specified, the basename of the current executable is used.
 	Name string `toml:"-"`
 
@@ -277,7 +277,7 @@ func (c *Config) ExtRPCEnabled() bool {
 func (c *Config) NodeName() string {
 	name := c.name()
 	// Backwards compatibility: previous versions used title-cased "Geth", keep that.
-	if name == "biz" || name == "geth-testnet" {
+	if name == "biz" || name == "biz-testnet" {
 		name = "Geth"
 	}
 	if c.UserIdent != "" {
@@ -320,7 +320,7 @@ func (c *Config) ResolvePath(path string) string {
 		return ""
 	}
 	// Backwards-compatibility: ensure that data directory files created
-	// by geth 1.4 are used if they exist.
+	// by biz 1.4 are used if they exist.
 	if warn, isOld := isOldGethResource[path]; isOld {
 		oldpath := ""
 		if c.name() == "biz" {
@@ -328,7 +328,7 @@ func (c *Config) ResolvePath(path string) string {
 		}
 		if oldpath != "" && common.FileExist(oldpath) {
 			if warn {
-				c.warnOnce(&c.oldGethResourceWarning, "Using deprecated resource file %s, please move this file to the 'geth' subdirectory of datadir.", oldpath)
+				c.warnOnce(&c.oldGethResourceWarning, "Using deprecated resource file %s, please move this file to the 'biz' subdirectory of datadir.", oldpath)
 			}
 			return oldpath
 		}

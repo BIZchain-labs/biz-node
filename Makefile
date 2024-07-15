@@ -2,7 +2,7 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: geth android ios evm all test clean
+.PHONY: biz android ios evm all test clean
 
 GOBIN = ./build/bin
 GO ?= latest
@@ -19,8 +19,8 @@ all:
 android:
 	$(GORUN) build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/geth.aar\" to use the library."
-	@echo "Import \"$(GOBIN)/geth-sources.jar\" to add javadocs"
+	@echo "Import \"$(GOBIN)/biz.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/biz-sources.jar\" to add javadocs"
 	@echo "For more info see https://stackoverflow.com/questions/20994336/android-studio-how-to-attach-javadoc"
 
 ios:

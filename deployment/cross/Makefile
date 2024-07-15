@@ -1,5 +1,5 @@
 PROJECT_ROOT_DIR = ../..
-ENTRY_FILE_GETH_DIR = github.com/BIZchain-labs/biz-node/cmd/geth
+ENTRY_FILE_GETH_DIR = github.com/BIZchain-labs/biz-node/cmd/biz
 ENTRY_FILE_BOOTNODE_DIR = github.com/BIZchain-labs/biz-node/cmd/bootnode
 GROUP_NAME = hecochain.com
 SERVICE_NAME_BOOTNODE = bootnode
@@ -9,7 +9,7 @@ GIT_TIME := $(shell git show -s --pretty=format:%cI)
 GO_PROXY := $(shell go env GOPROXY)
 
 build_linux_node:
-	xgo2 --goproxy="${GO_PROXY}" --targets=linux/amd64 -ldflags "-s -w -X 'main.gitCommit=${BIN_REVISION_STRING}' -X 'main.gitDate=${GIT_TIME}'" -out geth --pkg=${ENTRY_FILE_GETH_DIR} ${PROJECT_ROOT_DIR}
+	xgo2 --goproxy="${GO_PROXY}" --targets=linux/amd64 -ldflags "-s -w -X 'main.gitCommit=${BIN_REVISION_STRING}' -X 'main.gitDate=${GIT_TIME}'" -out biz --pkg=${ENTRY_FILE_GETH_DIR} ${PROJECT_ROOT_DIR}
 
 devtools:
 	go get -u github.com/stars-labs/xgo2
@@ -28,4 +28,4 @@ docker_miner:build_linux_node
 	docker tag ${GROUP_NAME}/${SERVICE_NAME_MINER}:${BIN_REVISION_STRING} ${GROUP_NAME}/${SERVICE_NAME_MINER}:latest
 
 clean:
-	rm -rf geth-* bootnode-*
+	rm -rf biz-* bootnode-*

@@ -16,7 +16,7 @@
 
 // Contains all the wrappers from the math/big package.
 
-package geth
+package biz
 
 import (
 	"errors"
@@ -77,7 +77,6 @@ func (bi *BigInt) SetInt64(x int64) {
 //	-1 if x <  0
 //	 0 if x == 0
 //	+1 if x >  0
-//
 func (bi *BigInt) Sign() int {
 	return bi.bigint.Sign()
 }

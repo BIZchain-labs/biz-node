@@ -11,8 +11,8 @@ Vcs-Browser: https://github.com/BIZchain-labs/biz-node
 Package: {{.Name}}
 Architecture: any
 Depends: ${misc:Depends}, {{.ExeList}}
-Description: Meta-package to install geth and other tools
- Meta-package to install geth and other tools
+Description: Meta-package to install biz and other tools
+ Meta-package to install biz and other tools
 
 {{range .Executables}}
 Package: {{$.ExeName .}}
