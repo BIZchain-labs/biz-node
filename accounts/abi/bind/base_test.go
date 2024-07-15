@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/BIZchain-labs/biz-node"
+	ethereum "github.com/BIZchain-labs/biz-node"
 	"github.com/BIZchain-labs/biz-node/accounts/abi"
 	"github.com/BIZchain-labs/biz-node/accounts/abi/bind"
 	"github.com/BIZchain-labs/biz-node/common"

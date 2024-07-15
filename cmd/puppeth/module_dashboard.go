@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of go-ethereum.
 //
 // go-ethereum is free software: you can redistribute it and/or modify
@@ -83,7 +83,7 @@ var dashboardContent = `
 									{{if .FaucetPage}}<li id="faucet_menu"><a onclick="load('#faucet')"><i class="fa fa-bath"></i> Crypto Faucet</a></li>{{end}}
 									<li id="connect_menu"><a><i class="fa fa-plug"></i> Connect Yourself</a>
 										<ul id="connect_list" class="nav child_menu">
-											<li><a onclick="$('#connect_menu').removeClass('active'); $('#connect_list').toggle(); load('#biz')">Go Ethereum: Geth</a></li>
+											<li><a onclick="$('#connect_menu').removeClass('active'); $('#connect_list').toggle(); load('#biz')">Go Ethereum: Biz</a></li>
 											<li><a onclick="$('#connect_menu').removeClass('active'); $('#connect_list').toggle(); load('#mobile')">Go Ethereum: Android & iOS</a></li>{{if .Ethash}}
 											<li><a onclick="$('#connect_menu').removeClass('active'); $('#connect_list').toggle(); load('#other')">Other Ethereum Clients</a></li>{{end}}
 										</ul>
@@ -98,7 +98,7 @@ var dashboardContent = `
 					<div id="biz" hidden style="padding: 16px;">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Connect Yourself &ndash; Go Ethereum: Geth</h3>
+								<h3>Connect Yourself &ndash; Go Ethereum: Biz</h3>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -113,12 +113,12 @@ var dashboardContent = `
 										<p>An archive node synchronizes the blockchain by downloading the full chain from the genesis block to the current head block, executing all the transactions contained within. As the node crunches through the transactions, all past historical state is stored on disk, and can be queried for each and every block.</p>
 										<p>Initial processing required to execute all transactions may require non-negligible time and disk capacity required to store all past state may be non-insignificant. High end machines with SSD storage, modern CPUs and 8GB+ RAM are recommended.</p>
 										<br/>
-										<p>To run an archive node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Geth with:
+										<p>To run an archive node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Biz with:
 											<pre>biz --datadir=$HOME/.{{.Network}} init {{.GethGenesis}}</pre>
 											<pre>biz --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=1024 --syncmode=full{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Geth from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
+										<p>You can download Biz from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -132,12 +132,12 @@ var dashboardContent = `
 										<p>A full node synchronizes the blockchain by downloading the full chain from the genesis block to the current head block, but does not execute the transactions. Instead, it downloads all the transactions receipts along with the entire recent state. As the node downloads the recent state directly, historical data can only be queried from that block onward.</p>
 										<p>Initial processing required to synchronize is more bandwidth intensive, but is light on the CPU and has significantly reduced disk requirements. Mid range machines with HDD storage, decent CPUs and 4GB+ RAM should be enough.</p>
 										<br/>
-										<p>To run a full node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Geth with:
+										<p>To run a full node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Biz with:
 											<pre>biz --datadir=$HOME/.{{.Network}} init {{.GethGenesis}}</pre>
 											<pre>biz --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=512{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Geth from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
+										<p>You can download Biz from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -154,12 +154,12 @@ var dashboardContent = `
 										<p>A light node synchronizes the blockchain by downloading and verifying only the chain of headers from the genesis block to the current head, without executing any transactions or retrieving any associated state. As no state is available locally, any interaction with the blockchain relies on on-demand data retrievals from remote nodes.</p>
 										<p>Initial processing required to synchronize is light, as it only verifies the validity of the headers; similarly required disk capacity is small, tallying around 500 bytes per header. Low end machines with arbitrary storage, weak CPUs and 512MB+ RAM should cope well.</p>
 										<br/>
-										<p>To run a light node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Geth with:
+										<p>To run a light node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Biz with:
 											<pre>biz --datadir=$HOME/.{{.Network}} init {{.GethGenesis}}</pre>
 											<pre>biz --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --syncmode=light{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Geth from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
+										<p>You can download Biz from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -173,12 +173,12 @@ var dashboardContent = `
 										<p>An embedded node is a variation of the light node with configuration parameters tuned towards low memory footprint. As such, it may sacrifice processing and disk IO performance to conserve memory. It should be considered an <strong>experimental</strong> direction for now without hard guarantees or bounds on the resources used.</p>
 										<p>Initial processing required to synchronize is light, as it only verifies the validity of the headers; similarly required disk capacity is small, tallying around 500 bytes per header. Embedded machines with arbitrary storage, low power CPUs and 128MB+ RAM may work.</p>
 										<br/>
-										<p>To run an embedded node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Geth with:
+										<p>To run an embedded node, download <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> and start Biz with:
 											<pre>biz --datadir=$HOME/.{{.Network}} init {{.GethGenesis}}</pre>
 											<pre>biz --networkid={{.NetworkID}} --datadir=$HOME/.{{.Network}} --cache=16 --ethash.cachesinmem=1 --syncmode=light{{if .Ethstats}} --ethstats='{{.Ethstats}}'{{end}} --bootnodes={{.BootnodesFlat}}</pre>
 										</p>
 										<br/>
-										<p>You can download Geth from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
+										<p>You can download Biz from <a href="https://biz.ethereum.org/downloads/" target="about:blank">https://biz.ethereum.org/downloads/</a>.</p>
 									</div>
 								</div>
 							</div>
@@ -236,7 +236,7 @@ node.start();
 										<p>Both stable and develop builds of the iOS framework are available via CocoaPods. Before proceeding, please ensure you have a recent version configured in your iOS project. You can find details in <a href="https://github.com/BIZchain-labs/biz-node/wiki/Mobile:-Introduction#ios-framework" target="about:blank">Mobile: Introduction &ndash; iOS framework</a>.
 										<p>Before connecting to the Ethereum network, download the <a href="/{{.GethGenesis}}"><code>{{.GethGenesis}}</code></a> genesis json file and either store it in your iOS project as a resource file you can access, or save it as a string in a variable. You're going to need to initialize your client.</p>
 										<p>Inside your Swift code you can now import the biz framework and connect to Ethereum (ObjC should be analogous):
-											<pre>import Geth</pre>
+											<pre>import Biz</pre>
 <pre>
 var error: NSError?
 
@@ -365,9 +365,9 @@ try! node?.start();
 										<p>Puppeth is a tool to aid you in creating a new Ethereum network down to the genesis block, bootnodes, signers, ethstats server, crypto faucet,  block explorer, dashboard and more; without the hassle that it would normally entail to manually configure all these services one by one.</p>
 										<p>Puppeth uses ssh to dial in to remote servers, and builds its network components out of docker containers using docker-compose. The user is guided through the process via a command line wizard that does the heavy lifting and topology configuration automatically behind the scenes.</p>
 										<br/>
-										<p>Puppeth is distributed as part of the <a href="https://biz.ethereum.org/downloads/" target="about:blank">Geth &amp; Tools</a> bundles, but can also be installed separately via:<pre>go get github.com/BIZchain-labs/biz-node/cmd/puppeth</pre></p>
+										<p>Puppeth is distributed as part of the <a href="https://biz.ethereum.org/downloads/" target="about:blank">Biz &amp; Tools</a> bundles, but can also be installed separately via:<pre>go get github.com/BIZchain-labs/biz-node/cmd/puppeth</pre></p>
 										<br/>
-										<p><em>Copyright 2017. The go-ethereum Authors.</em></p>
+										<p><em>Copyright 2017. The go-biz Authors.</em></p>
 									</div>
 									<div style="display: inline-block; vertical-align: bottom; width: 217px;">
 										<img src="puppeth.png" style="height: 256px; margin: 16px 16px 16px 16px"></img>

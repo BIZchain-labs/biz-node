@@ -13,9 +13,9 @@ PageEx license
 PageExEnd
 
 # Install biz binary
-Section "Geth" GETH_IDX
+Section "Biz" GETH_IDX
   SetOutPath $INSTDIR
-  file {{.Geth}}
+  file {{.Biz}}
 
   # Create start menu launcher
   createDirectory "$SMPROGRAMS\${APPNAME}"
@@ -24,14 +24,14 @@ Section "Geth" GETH_IDX
   createShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\uninstall.exe"
 
   # Firewall - remove rules (if exists)
-  SimpleFC::AdvRemoveRule "Geth incoming peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "Geth outgoing peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "Geth UDP discovery (UDP:30303)"
+  SimpleFC::AdvRemoveRule "Biz incoming peers (TCP:30303)"
+  SimpleFC::AdvRemoveRule "Biz outgoing peers (TCP:30303)"
+  SimpleFC::AdvRemoveRule "Biz UDP discovery (UDP:30303)"
 
   # Firewall - add rules
-  SimpleFC::AdvAddRule "Geth incoming peers (TCP:30303)" ""  6 1 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" 30303 "" "" ""
-  SimpleFC::AdvAddRule "Geth outgoing peers (TCP:30303)" ""  6 2 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" "" 30303 "" ""
-  SimpleFC::AdvAddRule "Geth UDP discovery (UDP:30303)" "" 17 2 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" "" 30303 "" ""
+  SimpleFC::AdvAddRule "Biz incoming peers (TCP:30303)" ""  6 1 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" 30303 "" "" ""
+  SimpleFC::AdvAddRule "Biz outgoing peers (TCP:30303)" ""  6 2 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" "" 30303 "" ""
+  SimpleFC::AdvAddRule "Biz UDP discovery (UDP:30303)" "" 17 2 1 2147483647 1 "$INSTDIR\biz.exe" "" "" "Ethereum" "" 30303 "" ""
 
   # Set default IPC endpoint (https://github.com/ethereum/EIPs/issues/147)
   ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\biz.ipc"

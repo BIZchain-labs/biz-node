@@ -1,4 +1,4 @@
-// Copyright 2016 The go-ethereum Authors
+// Copyright 2016 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/BIZchain-labs/biz-node"
+	ethereum "github.com/BIZchain-labs/biz-node"
 	"github.com/BIZchain-labs/biz-node/common"
 	"github.com/BIZchain-labs/biz-node/common/hexutil"
 	"github.com/BIZchain-labs/biz-node/core/types"
@@ -321,7 +321,6 @@ func (ec *Client) SyncProgress(ctx context.Context) (*ethereum.SyncProgress, err
 	if err := json.Unmarshal(raw, &syncing); err == nil {
 		return nil, nil // Not syncing (always false)
 	}
-
 
 	var p *rpcProgress
 	if err := json.Unmarshal(raw, &p); err != nil {

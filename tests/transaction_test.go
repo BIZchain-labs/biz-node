@@ -1,4 +1,4 @@
-// Copyright 2015 The go-ethereum Authors
+// Copyright 2015 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@ func TestTransaction(t *testing.T) {
 	txt.skipLoad("^ttNonce/TransactionWithHighNonce256.json")
 
 	// The value is larger than uint64, which according to the test is invalid.
-	// Geth accepts it, which is not a consensus issue since we use big.Int's
+	// Biz accepts it, which is not a consensus issue since we use big.Int's
 	// internally to calculate the cost
 	txt.skipLoad("^ttValue/TransactionWithHighValueOverflow.json")
 	txt.walk(t, transactionTestDir, func(t *testing.T, name string, test *TransactionTest) {

@@ -1,4 +1,4 @@
-// Copyright 2021 The go-ethereum Authors
+// Copyright 2021 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -37,14 +37,15 @@ func init() {
 // a reversed signature can be matched against the size of the data.
 //
 // Example:
-//   > debug.traceTransaction( "0x214e597e35da083692f5386141e69f47e973b2c56e7a8073b1ea08fd7571e9de", {tracer: "4byteTracer"})
-//   {
-//     0x27dc297e-128: 1,
-//     0x38cc4831-0: 2,
-//     0x524f3889-96: 1,
-//     0xadf59f99-288: 1,
-//     0xc281d19e-0: 1
-//   }
+//
+//	> debug.traceTransaction( "0x214e597e35da083692f5386141e69f47e973b2c56e7a8073b1ea08fd7571e9de", {tracer: "4byteTracer"})
+//	{
+//	  0x27dc297e-128: 1,
+//	  0x38cc4831-0: 2,
+//	  0x524f3889-96: 1,
+//	  0xadf59f99-288: 1,
+//	  0xc281d19e-0: 1
+//	}
 type fourByteTracer struct {
 	env               *vm.EVM
 	ids               map[string]int   // ids aggregates the 4byte ids found

@@ -439,14 +439,14 @@ func doDocker(cmdline []string) {
 		build.MustRun(auther)
 	}
 	// Retrieve the version infos to build and push to the following paths:
-	//  - ethereum/client-go:latest                            - Pushes to the master branch, Geth only
-	//  - ethereum/client-go:stable                            - Version tag publish on GitHub, Geth only
-	//  - ethereum/client-go:alltools-latest                   - Pushes to the master branch, Geth & tools
-	//  - ethereum/client-go:alltools-stable                   - Version tag publish on GitHub, Geth & tools
-	//  - ethereum/client-go:release-<major>.<minor>           - Version tag publish on GitHub, Geth only
-	//  - ethereum/client-go:alltools-release-<major>.<minor>  - Version tag publish on GitHub, Geth & tools
-	//  - ethereum/client-go:v<major>.<minor>.<patch>          - Version tag publish on GitHub, Geth only
-	//  - ethereum/client-go:alltools-v<major>.<minor>.<patch> - Version tag publish on GitHub, Geth & tools
+	//  - ethereum/client-go:latest                            - Pushes to the master branch, Biz only
+	//  - ethereum/client-go:stable                            - Version tag publish on GitHub, Biz only
+	//  - ethereum/client-go:alltools-latest                   - Pushes to the master branch, Biz & tools
+	//  - ethereum/client-go:alltools-stable                   - Version tag publish on GitHub, Biz & tools
+	//  - ethereum/client-go:release-<major>.<minor>           - Version tag publish on GitHub, Biz only
+	//  - ethereum/client-go:alltools-release-<major>.<minor>  - Version tag publish on GitHub, Biz & tools
+	//  - ethereum/client-go:v<major>.<minor>.<patch>          - Version tag publish on GitHub, Biz only
+	//  - ethereum/client-go:alltools-v<major>.<minor>.<patch> - Version tag publish on GitHub, Biz & tools
 	var tags []string
 
 	switch {
@@ -557,7 +557,7 @@ func doDocker(cmdline []string) {
 			log.Println("Relinquishing publish to other builder")
 			return
 		}
-		// Assemble and push the Geth manifest image
+		// Assemble and push the Biz manifest image
 		for _, tag := range tags {
 			gethImage := fmt.Sprintf("%s:%s", *upload, tag)
 
@@ -896,7 +896,7 @@ func doWindowsInstaller(cmdline []string) {
 	// first section contains the biz binary, second section holds the dev tools.
 	templateData := map[string]interface{}{
 		"License":  "COPYING",
-		"Geth":     gethTool,
+		"Biz":      gethTool,
 		"DevTools": devTools,
 	}
 	build.Render("build/nsis.biz.nsi", filepath.Join(*workdir, "biz.nsi"), 0644, nil)
@@ -1116,8 +1116,8 @@ func doXCodeFramework(cmdline []string) {
 	// Prepare and upload a PodSpec to CocoaPods
 	if *deploy != "" {
 		meta := newPodMetadata(env, archive)
-		build.Render("build/pod.podspec", "Geth.podspec", 0755, meta)
-		build.MustRunCommand("pod", *deploy, "push", "Geth.podspec", "--allow-warnings")
+		build.Render("build/pod.podspec", "Biz.podspec", 0755, meta)
+		build.MustRunCommand("pod", *deploy, "push", "Biz.podspec", "--allow-warnings")
 	}
 }
 

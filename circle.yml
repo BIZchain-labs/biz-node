@@ -23,7 +23,7 @@ dependencies:
 
 test:
   override:
-    # Build Geth and move into a known folder
+    # Build Biz and move into a known folder
     - make biz
     - cp ./build/bin/biz $HOME/biz
 

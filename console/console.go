@@ -1,4 +1,4 @@
-// Copyright 2016 The go-ethereum Authors
+// Copyright 2016 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -28,12 +28,12 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/dop251/goja"
 	"github.com/BIZchain-labs/biz-node/console/prompt"
 	"github.com/BIZchain-labs/biz-node/internal/jsre"
 	"github.com/BIZchain-labs/biz-node/internal/jsre/deps"
 	"github.com/BIZchain-labs/biz-node/internal/web3ext"
 	"github.com/BIZchain-labs/biz-node/rpc"
+	"github.com/dop251/goja"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 )
@@ -296,12 +296,12 @@ func (c *Console) AutoCompleteInput(line string, pos int) (string, []string, str
 	return line[:start], c.jsre.CompleteKeywords(line[start:pos]), line[pos:]
 }
 
-// Welcome show summary of current Geth instance and some metadata about the
+// Welcome show summary of current Biz instance and some metadata about the
 // console's available modules.
 func (c *Console) Welcome() {
-	message := "Welcome to the Geth JavaScript console!\n\n"
+	message := "Welcome to the Biz JavaScript console!\n\n"
 
-	// Print some generic Geth metadata
+	// Print some generic Biz metadata
 	if res, err := c.jsre.Run(`
 		var message = "instance: " + web3.version.node + "\n";
 		try {

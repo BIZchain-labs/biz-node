@@ -1,4 +1,4 @@
-// Copyright 2016 The go-ethereum Authors
+// Copyright 2016 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -28,11 +28,13 @@ import (
 // given type
 // e.g. turn
 // var fields []reflect.StructField
-// fields = append(fields, reflect.StructField{
-// 		Name: "X",
-//		Type: reflect.TypeOf(new(big.Int)),
-//		Tag:  reflect.StructTag("json:\"" + "x" + "\""),
-// }
+//
+//	fields = append(fields, reflect.StructField{
+//			Name: "X",
+//			Type: reflect.TypeOf(new(big.Int)),
+//			Tag:  reflect.StructTag("json:\"" + "x" + "\""),
+//	}
+//
 // into
 // type TupleT struct { X *big.Int }
 func ConvertType(in interface{}, proto interface{}) interface{} {
@@ -171,10 +173,14 @@ func setStruct(dst, src reflect.Value) error {
 
 // mapArgNamesToStructFields maps a slice of argument names to struct fields.
 // first round: for each Exportable field that contains a `abi:""` tag
-//   and this field name exists in the given argument name list, pair them together.
+//
+//	and this field name exists in the given argument name list, pair them together.
+//
 // second round: for each argument name that has not been already linked,
-//   find what variable is expected to be mapped into, if it exists and has not been
-//   used, pair them.
+//
+//	find what variable is expected to be mapped into, if it exists and has not been
+//	used, pair them.
+//
 // Note this function assumes the given value is a struct value.
 func mapArgNamesToStructFields(argNames []string, value reflect.Value) (map[string]string, error) {
 	typ := value.Type()

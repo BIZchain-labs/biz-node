@@ -1,4 +1,4 @@
-// Copyright 2021 The go-ethereum Authors
+// Copyright 2021 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -617,8 +617,6 @@ func (api *API) traceBlock(ctx context.Context, block *types.Block, config *Trac
 		threads = len(txs)
 	}
 
-
-	
 	if api.isPoSA {
 		blockCtx := core.NewEVMBlockContext(block.Header(), api.chainContext(ctx), nil)
 		_ = api.posa.PreHandle(api.backend.ChainHeaderReader(), header, statedb)

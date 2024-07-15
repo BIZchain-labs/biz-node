@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -26,9 +26,10 @@ import (
 // LazyQueue is a priority queue data structure where priorities can change over
 // time and are only evaluated on demand.
 // Two callbacks are required:
-// - priority evaluates the actual priority of an item
-// - maxPriority gives an upper estimate for the priority in any moment between
-//   now and the given absolute time
+//   - priority evaluates the actual priority of an item
+//   - maxPriority gives an upper estimate for the priority in any moment between
+//     now and the given absolute time
+//
 // If the upper estimate is exceeded then Update should be called for that item.
 // A global Refresh function should also be called periodically.
 type LazyQueue struct {

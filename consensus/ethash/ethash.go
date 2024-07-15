@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -33,11 +33,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/edsrzf/mmap-go"
 	"github.com/BIZchain-labs/biz-node/consensus"
 	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/BIZchain-labs/biz-node/metrics"
 	"github.com/BIZchain-labs/biz-node/rpc"
+	"github.com/edsrzf/mmap-go"
 	"github.com/hashicorp/golang-lru/simplelru"
 )
 

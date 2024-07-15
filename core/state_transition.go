@@ -1,4 +1,4 @@
-// Copyright 2014 The go-ethereum Authors
+// Copyright 2014 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -43,8 +43,10 @@ The state transitioning model does all the necessary work to work out a valid ne
 3) Create a new state object if the recipient is \0*32
 4) Value transfer
 == If contract creation ==
-  4a) Attempt to run transaction data
-  4b) If valid, use result as code for the new state object
+
+	4a) Attempt to run transaction data
+	4b) If valid, use result as code for the new state object
+
 == end ==
 5) Run Script section
 6) Derive new state root
@@ -236,7 +238,8 @@ func (st *StateTransition) buyGasMeta() error {
 	return nil
 }
 
-/**
+/*
+*
 检查是普通交易还是元交易类型, 元交易和普通交易的区别在于extraData开头的标识位
 */
 func (st *StateTransition) preCheck() error {
@@ -294,7 +297,7 @@ func (st *StateTransition) preCheck() error {
 	return st.buyGas()
 }
 
-//check if tx is meta tx
+// check if tx is meta tx
 func (st *StateTransition) metaTransactionCheck() error {
 	if types.IsMetaTransaction(st.data) {
 		metaData, err := types.DecodeMetaData(st.data, st.evm.Context.BlockNumber)
@@ -319,13 +322,13 @@ func (st *StateTransition) metaTransactionCheck() error {
 // TransitionDb will transition the state by applying the current message and
 // returning the evm execution result with following fields.
 //
-// - used gas:
-//      total gas used (including gas being refunded)
-// - returndata:
-//      the returned data from evm
-// - concrete execution error:
-//      various **EVM** error which aborts the execution,
-//      e.g. ErrOutOfGas, ErrExecutionReverted
+//   - used gas:
+//     total gas used (including gas being refunded)
+//   - returndata:
+//     the returned data from evm
+//   - concrete execution error:
+//     various **EVM** error which aborts the execution,
+//     e.g. ErrOutOfGas, ErrExecutionReverted
 //
 // However if any consensus issue encountered, return the error directly with
 // nil evm execution result.

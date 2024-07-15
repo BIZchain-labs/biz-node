@@ -1,4 +1,4 @@
-// Copyright 2018 The go-ethereum Authors
+// Copyright 2018 The go-biz Authors
 // This file is part of go-ethereum.
 //
 // go-ethereum is free software: you can redistribute it and/or modify
@@ -24,8 +24,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/BIZchain-labs/biz-node/core"
+	"github.com/davecgh/go-spew/spew"
 )
 
 // Tests the go-ethereum to Aleth chainspec conversion for the Stureby testnet.

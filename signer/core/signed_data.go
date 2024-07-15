@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -17,30 +17,22 @@
 package core
 
 import (
-	
 	"context"
 	"errors"
 	"fmt"
 
 	"mime"
 
-	
-
 	"github.com/BIZchain-labs/biz-node/accounts"
 	"github.com/BIZchain-labs/biz-node/common"
 	"github.com/BIZchain-labs/biz-node/common/hexutil"
-	
+
 	"github.com/BIZchain-labs/biz-node/consensus/clique"
 	"github.com/BIZchain-labs/biz-node/core/types"
 	"github.com/BIZchain-labs/biz-node/crypto"
 	"github.com/BIZchain-labs/biz-node/rlp"
 	"github.com/BIZchain-labs/biz-node/signer/core/apitypes"
 )
-
-
-
-
-
 
 // sign receives a request and produces a signature
 //
@@ -276,17 +268,6 @@ func (api *SignerAPI) signTypedData(ctx context.Context, addr common.MixedcaseAd
 	return signature, sighash, nil
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // EcRecover recovers the address associated with the given sig.
 // Only compatible with `text/plain`
 func (api *SignerAPI) EcRecover(ctx context.Context, data hexutil.Bytes, sig hexutil.Bytes) (common.Address, error) {
@@ -351,5 +332,3 @@ func UnmarshalValidatorData(data interface{}) (apitypes.ValidatorData, error) {
 		Message: messageBytes,
 	}, nil
 }
-
-

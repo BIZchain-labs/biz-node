@@ -1,4 +1,4 @@
-// Copyright 2015 The go-ethereum Authors
+// Copyright 2015 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -22,9 +22,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/BIZchain-labs/biz-node/crypto"
 	"github.com/BIZchain-labs/biz-node/p2p/simulations/pipes"
+	"github.com/davecgh/go-spew/spew"
 )
 
 func TestProtocolHandshake(t *testing.T) {

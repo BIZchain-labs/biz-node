@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -23,7 +23,6 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/BIZchain-labs/biz-node/consensus/ethash"
 	"github.com/BIZchain-labs/biz-node/core"
 	"github.com/BIZchain-labs/biz-node/core/rawdb"
@@ -31,6 +30,7 @@ import (
 	"github.com/BIZchain-labs/biz-node/core/vm"
 	"github.com/BIZchain-labs/biz-node/params"
 	"github.com/BIZchain-labs/biz-node/trie"
+	"github.com/davecgh/go-spew/spew"
 )
 
 func TestNodeIterator(t *testing.T) {

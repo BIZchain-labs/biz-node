@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -82,14 +82,14 @@ func (h *GlogHandler) Verbosity(level Lvl) {
 //
 // For instance:
 //
-//  pattern="gopher.go=3"
-//   sets the V level to 3 in all Go files named "gopher.go"
+//	pattern="gopher.go=3"
+//	 sets the V level to 3 in all Go files named "gopher.go"
 //
-//  pattern="foo=3"
-//   sets V to 3 in all files of any packages whose import path ends in "foo"
+//	pattern="foo=3"
+//	 sets V to 3 in all files of any packages whose import path ends in "foo"
 //
-//  pattern="foo/*=3"
-//   sets V to 3 in all files of any packages whose import path contains "foo"
+//	pattern="foo/*=3"
+//	 sets V to 3 in all files of any packages whose import path contains "foo"
 func (h *GlogHandler) Vmodule(ruleset string) error {
 	var filter []pattern
 	for _, rule := range strings.Split(ruleset, ",") {

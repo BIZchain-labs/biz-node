@@ -1,4 +1,4 @@
-// Copyright 2014 The go-ethereum Authors
+// Copyright 2014 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -30,7 +30,6 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/BIZchain-labs/biz-node/common"
 	"github.com/BIZchain-labs/biz-node/core/types"
 	"github.com/BIZchain-labs/biz-node/crypto"
@@ -38,6 +37,7 @@ import (
 	"github.com/BIZchain-labs/biz-node/ethdb/leveldb"
 	"github.com/BIZchain-labs/biz-node/ethdb/memorydb"
 	"github.com/BIZchain-labs/biz-node/rlp"
+	"github.com/davecgh/go-spew/spew"
 	"golang.org/x/crypto/sha3"
 )
 

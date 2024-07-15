@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -24,13 +24,13 @@ import (
 	"io"
 	"time"
 
-	"github.com/VictoriaMetrics/fastcache"
 	"github.com/BIZchain-labs/biz-node/common"
 	"github.com/BIZchain-labs/biz-node/core/rawdb"
 	"github.com/BIZchain-labs/biz-node/ethdb"
 	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/BIZchain-labs/biz-node/rlp"
 	"github.com/BIZchain-labs/biz-node/trie"
+	"github.com/VictoriaMetrics/fastcache"
 )
 
 const journalVersion uint64 = 0
@@ -80,7 +80,7 @@ func loadAndParseJournal(db ethdb.KeyValueStore, base *diskLayer) (snapshot, jou
 		return nil, journalGenerator{}, fmt.Errorf("failed to decode snapshot generator: %v", err)
 	}
 	// Retrieve the diff layer journal. It's possible that the journal is
-	// not existent, e.g. the disk layer is generating while that the Geth
+	// not existent, e.g. the disk layer is generating while that the Biz
 	// crashes without persisting the diff journal.
 	// So if there is no journal, or the journal is invalid(e.g. the journal
 	// is not matched with disk layer; or the it's the legacy-format journal,
@@ -110,7 +110,7 @@ func loadAndParseJournal(db ethdb.KeyValueStore, base *diskLayer) (snapshot, jou
 		return nil, journalGenerator{}, errors.New("missing disk layer root")
 	}
 	// The diff journal is not matched with disk, discard them.
-	// It can happen that Geth crashes without persisting the latest
+	// It can happen that Biz crashes without persisting the latest
 	// diff journal.
 	if !bytes.Equal(root.Bytes(), base.root.Bytes()) {
 		log.Warn("Loaded snapshot journal", "diskroot", base.root, "diffs", "unmatched")
@@ -153,7 +153,7 @@ func loadSnapshot(diskdb ethdb.KeyValueStore, triedb *trie.Database, cache int, 
 	// snapshot is not matched with current state root, print a warning log
 	// or discard the entire snapshot it's legacy snapshot.
 	//
-	// Possible scenario: Geth was crashed without persisting journal and then
+	// Possible scenario: Biz was crashed without persisting journal and then
 	// restart, the head is rewound to the point with available state(trie)
 	// which is below the snapshot. In this case the snapshot can be recovered
 	// by re-executing blocks but right now it's unavailable.

@@ -1,4 +1,4 @@
-// Copyright 2015 The go-ethereum Authors
+// Copyright 2015 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -27,8 +27,8 @@ import (
 // life cycle management.
 //
 // The following methods are needed to implement a node.Lifecycle:
-//  - Start() error              - method invoked when the node is ready to start the service
-//  - Stop() error               - method invoked when the node terminates the service
+//   - Start() error              - method invoked when the node is ready to start the service
+//   - Stop() error               - method invoked when the node terminates the service
 type SampleLifecycle struct{}
 
 func (s *SampleLifecycle) Start() error { fmt.Println("Service starting..."); return nil }

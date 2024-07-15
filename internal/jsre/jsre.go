@@ -1,4 +1,4 @@
-// Copyright 2015 The go-ethereum Authors
+// Copyright 2015 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/dop251/goja"
 	"github.com/BIZchain-labs/biz-node/common"
+	"github.com/dop251/goja"
 )
 
 // JSRE is a JS runtime environment embedding the goja interpreter.

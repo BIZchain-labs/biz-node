@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 // stored in key/value pairs. To store and retrieve key/values in a record, use the Entry
 // interface.
 //
-// Signature Handling
+// # Signature Handling
 //
 // Records must be signed before transmitting them to another node.
 //

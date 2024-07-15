@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of go-ethereum.
 //
 // go-ethereum is free software: you can redistribute it and/or modify
@@ -17,8 +17,9 @@
 package main
 
 import (
-	"time"
 	"errors"
+	"time"
+
 	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/BIZchain-labs/biz-node/p2p/enode"
 )

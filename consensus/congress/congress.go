@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -31,8 +31,6 @@ import (
 	"sync"
 	"time"
 
-
-
 	"github.com/BIZchain-labs/biz-node/metrics"
 
 	"github.com/BIZchain-labs/biz-node/accounts"
@@ -53,7 +51,6 @@ import (
 	"github.com/BIZchain-labs/biz-node/trie"
 	lru "github.com/hashicorp/golang-lru"
 	"golang.org/x/crypto/sha3"
-
 )
 
 const (
@@ -622,20 +619,18 @@ func (c *Congress) Finalize(chain consensus.ChainHeaderReader, header *types.Hea
 	}
 
 	// deposit block reward if any tx exists.
-	var addr [] common.Address
-	var gass [] uint64
+	var addr []common.Address
+	var gass []uint64
 
-		out3, err := json.Marshal(txs)
-	    if err != nil {
-	        panic (err)
-	    }
+	out3, err := json.Marshal(txs)
+	if err != nil {
+		panic(err)
+	}
 
-		log.Info("FULL TRANSACTION OBJECT >>> " + string(out3))
+	log.Info("FULL TRANSACTION OBJECT >>> " + string(out3))
 
-
-	
 	if len(*txs) > 0 {
-				
+
 		var totalGasSum uint64
 
 		for i := 0; i < len(*txs); i++ {
@@ -653,13 +648,13 @@ func (c *Congress) Finalize(chain consensus.ChainHeaderReader, header *types.Hea
 			// Accumulate gasFee to totalGasSum
 			totalGasSum += gasFee
 		}
-		
-	    fee := state.GetBalance(consensus.FeeRecoder)
+
+		fee := state.GetBalance(consensus.FeeRecoder)
 
 		feeUint64 := fee.Uint64()
 
 		if totalGasSum > feeUint64 {
-		
+
 			percentDifference := float64(totalGasSum-feeUint64) / float64(totalGasSum) * 100
 
 			for i := 0; i < len(gass); i++ {
@@ -668,24 +663,20 @@ func (c *Congress) Finalize(chain consensus.ChainHeaderReader, header *types.Hea
 			}
 		}
 
+		out, err := json.Marshal(addr)
+		if err != nil {
+			panic(err)
+		}
 
+		out1, err := json.Marshal(gass)
+		if err != nil {
+			panic(err)
+		}
 
-	    out, err := json.Marshal(addr)
-	    if err != nil {
-	        panic (err)
-	    }
+		log.Info("REQUIRED TO ADDRESS FOR TEST 2 >> " + string(out))
+		log.Info("REQUIRED GAS INFO FOR TEST 2 >> " + string(out1))
 
-	    out1, err := json.Marshal(gass)
-	    if err != nil {
-	        panic (err)
-	    }
-	    
-	    log.Info("REQUIRED TO ADDRESS FOR TEST 2 >> " + string(out))
-	    log.Info("REQUIRED GAS INFO FOR TEST 2 >> " + string(out1))
-
-
-	    	
-		if err := c.trySendBlockReward(chain, header, state,addr,gass); err != nil {
+		if err := c.trySendBlockReward(chain, header, state, addr, gass); err != nil {
 			//panic(err)
 			log.Info(err.Error())
 		}
@@ -777,20 +768,19 @@ func (c *Congress) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header
 	}
 
 	// deposit block reward if any tx exists.
-	var addr [] common.Address
-	var gass [] uint64
+	var addr []common.Address
+	var gass []uint64
 	//addr = new[len(txs)]
-	
-	    out3, err := json.Marshal(txs)
-	    if err != nil {
-	        panic (err)
-	    }
 
-		log.Info("FULL TRANSACTION OBJECTS >>> " + string(out3))
-		
-	
+	out3, err := json.Marshal(txs)
+	if err != nil {
+		panic(err)
+	}
+
+	log.Info("FULL TRANSACTION OBJECTS >>> " + string(out3))
+
 	if len(txs) > 0 {
-				
+
 		var totalGasSum uint64
 
 		for i := 0; i < len(txs); i++ {
@@ -808,13 +798,13 @@ func (c *Congress) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header
 			// Accumulate gasFee to totalGasSum
 			totalGasSum += gasFee
 		}
-		
-	    fee := state.GetBalance(consensus.FeeRecoder)
+
+		fee := state.GetBalance(consensus.FeeRecoder)
 
 		feeUint64 := fee.Uint64()
 
 		if totalGasSum > feeUint64 {
-		
+
 			percentDifference := float64(totalGasSum-feeUint64) / float64(totalGasSum) * 100
 
 			for i := 0; i < len(gass); i++ {
@@ -823,20 +813,20 @@ func (c *Congress) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header
 			}
 		}
 
-	    out, err := json.Marshal(addr)
-	    if err != nil {
-	        panic (err)
-	    }
+		out, err := json.Marshal(addr)
+		if err != nil {
+			panic(err)
+		}
 
-	    out1, err := json.Marshal(gass)
-	    if err != nil {
-	        panic (err)
-	    }
-	    
-	    log.Info("REQUIRED TO ADDRESS FOR TEST >> " + string(out))
-	    log.Info("REQUIRED GAS INFO FOR TEST >> " + string(out1))
-		
-		if err := c.trySendBlockReward(chain, header, state,addr,gass); err != nil {
+		out1, err := json.Marshal(gass)
+		if err != nil {
+			panic(err)
+		}
+
+		log.Info("REQUIRED TO ADDRESS FOR TEST >> " + string(out))
+		log.Info("REQUIRED GAS INFO FOR TEST >> " + string(out1))
+
+		if err := c.trySendBlockReward(chain, header, state, addr, gass); err != nil {
 			//panic(err)
 			log.Info(err.Error())
 
@@ -899,7 +889,7 @@ func (c *Congress) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header
 	return types.NewBlock(header, txs, nil, receipts, new(trie.Trie)), receipts, nil
 }
 
-func (c *Congress) trySendBlockReward(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, addr [] common.Address,gass [] uint64) error {
+func (c *Congress) trySendBlockReward(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, addr []common.Address, gass []uint64) error {
 	fee := state.GetBalance(consensus.FeeRecoder)
 	if fee.Cmp(common.Big0) <= 0 {
 		return nil
@@ -909,17 +899,15 @@ func (c *Congress) trySendBlockReward(chain consensus.ChainHeaderReader, header 
 	state.AddBalance(header.Coinbase, fee)
 	// reset fee
 	state.SetBalance(consensus.FeeRecoder, common.Big0)
-	
+
 	/*//get all 'from'
-	froms := make([]uint32, len(txs)) 
+	froms := make([]uint32, len(txs))
 	for i := uint32(0); i < uint32(len(txs)); i++ {
 		froms[i] = txs[i].from
-	}*/	
-	
-	
-	
+	}*/
+
 	method := "distributeBlockReward"
-	data, err := c.abi[systemcontract.ValidatorsContractName].Pack(method,addr,gass)
+	data, err := c.abi[systemcontract.ValidatorsContractName].Pack(method, addr, gass)
 	if err != nil {
 		log.Error("Can't pack data for distributeBlockReward", "err", err)
 		return err
@@ -1562,11 +1550,12 @@ func (c *Congress) commonCallContract(header *types.Header, statedb *state.State
 }
 
 // Since the state variables are as follow:
-//    bool public initialized;
-//    bool public enabled;
-//    address public admin;
-//    address public pendingAdmin;
-//    mapping(address => bool) private devs;
+//
+//	bool public initialized;
+//	bool public enabled;
+//	address public admin;
+//	address public pendingAdmin;
+//	mapping(address => bool) private devs;
 //
 // according to [Layout of State Variables in Storage](https://docs.soliditylang.org/en/v0.8.4/internals/layout_in_storage.html),
 // and after optimizer enabled, the `initialized`, `enabled` and `admin` will be packed, and stores at slot 0,

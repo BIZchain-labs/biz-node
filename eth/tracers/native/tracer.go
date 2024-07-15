@@ -1,4 +1,4 @@
-// Copyright 2021 The go-ethereum Authors
+// Copyright 2021 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -27,9 +27,11 @@ Aside from implementing the tracer, it also needs to register itself, using the
 Example:
 
 ```golang
-func init() {
-	register("noopTracerNative", newNoopTracer)
-}
+
+	func init() {
+		register("noopTracerNative", newNoopTracer)
+	}
+
 ```
 */
 package native

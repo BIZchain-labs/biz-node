@@ -1,4 +1,4 @@
-// Copyright 2018 The go-ethereum Authors
+// Copyright 2018 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dop251/goja"
 	"github.com/BIZchain-labs/biz-node/internal/ethapi"
 	"github.com/BIZchain-labs/biz-node/internal/jsre/deps"
 	"github.com/BIZchain-labs/biz-node/log"
 	"github.com/BIZchain-labs/biz-node/signer/core"
 	"github.com/BIZchain-labs/biz-node/signer/storage"
+	"github.com/dop251/goja"
 )
 
 var (

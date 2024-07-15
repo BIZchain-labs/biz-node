@@ -1,4 +1,4 @@
-// Copyright 2016 The go-ethereum Authors
+// Copyright 2016 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -24,13 +24,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dop251/goja"
 	"github.com/BIZchain-labs/biz-node/accounts/scwallet"
 	"github.com/BIZchain-labs/biz-node/accounts/usbwallet"
 	"github.com/BIZchain-labs/biz-node/common/hexutil"
 	"github.com/BIZchain-labs/biz-node/console/prompt"
 	"github.com/BIZchain-labs/biz-node/internal/jsre"
 	"github.com/BIZchain-labs/biz-node/rpc"
+	"github.com/dop251/goja"
 )
 
 // bridge is a collection of JavaScript utility methods to bride the .js runtime

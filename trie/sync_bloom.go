@@ -1,4 +1,4 @@
-// Copyright 2019 The go-ethereum Authors
+// Copyright 2019 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -177,7 +177,7 @@ func (b *SyncBloom) Add(hash []byte) {
 func (b *SyncBloom) Contains(hash []byte) bool {
 	bloomTestMeter.Mark(1)
 	if atomic.LoadUint32(&b.inited) == 0 {
-		// We didn't load all the trie nodes from the previous run of Geth yet. As
+		// We didn't load all the trie nodes from the previous run of Biz yet. As
 		// such, we can't say for sure if a hash is not present for anything. Until
 		// the init is done, we're faking "possible presence" for everything.
 		return true

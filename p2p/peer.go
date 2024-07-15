@@ -1,4 +1,4 @@
-// Copyright 2014 The go-ethereum Authors
+// Copyright 2014 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -289,7 +289,7 @@ loop:
 func (p *Peer) pingLoop() {
 	// ping := time.NewTimer(pingInterval)
 	defer p.wg.Done()
-	
+
 	ping := time.NewTimer(pingInterval)
 
 	for {
@@ -335,7 +335,7 @@ func (p *Peer) handle(msg Msg) error {
 		case p.pingRecv <- struct{}{}:
 		case <-p.closed:
 		}
-		
+
 	case msg.Code == discMsg:
 		// This is the last message. We don't need to discard or
 		// check errors because, the connection will be closed after it.

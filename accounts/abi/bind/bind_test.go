@@ -1,4 +1,4 @@
-// Copyright 2016 The go-ethereum Authors
+// Copyright 2016 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -2060,9 +2060,9 @@ public class Test {
 
 	// deploy deploys a new Ethereum contract, binding an instance of Test to it.
 	public static Test deploy(TransactOpts auth, EthereumClient client) throws Exception {
-		Interfaces args = Geth.newInterfaces(0);
+		Interfaces args = Biz.newInterfaces(0);
 		String bytecode = BYTECODE;
-		return new Test(Geth.deployContract(auth, ABI, Geth.decodeFromHex(bytecode), client, args));
+		return new Test(Biz.deployContract(auth, ABI, Biz.decodeFromHex(bytecode), client, args));
 	}
 
 	// Internal constructor used by contract deployment.
@@ -2083,15 +2083,15 @@ public class Test {
 
 	// Creates a new instance of Test, bound to a specific deployed contract.
 	public Test(Address address, EthereumClient client) throws Exception {
-		this(Geth.bindContract(address, ABI, client));
+		this(Biz.bindContract(address, ABI, client));
 	}
 
 	// setAddress is a paid mutator transaction binding the contract method 0xe30081a0.
 	//
 	// Solidity: function setAddress(address a) returns(address)
 	public Transaction setAddress(TransactOpts opts, Address a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setAddress(a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setAddress(a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setAddress"	, args);
 	}
@@ -2100,8 +2100,8 @@ public class Test {
 	//
 	// Solidity: function setAddressArray(address[2] a_a) returns(address[2])
 	public Transaction setAddressArray(TransactOpts opts, Addresses a_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setAddresses(a_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setAddresses(a_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setAddressArray"	, args);
 	}
@@ -2110,8 +2110,8 @@ public class Test {
 	//
 	// Solidity: function setAddressList(address[] a_l) returns(address[])
 	public Transaction setAddressList(TransactOpts opts, Addresses a_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setAddresses(a_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setAddresses(a_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setAddressList"	, args);
 	}
@@ -2120,8 +2120,8 @@ public class Test {
 	//
 	// Solidity: function setBool(bool b) returns(bool)
 	public Transaction setBool(TransactOpts opts, boolean b) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBool(b);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBool(b);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBool"	, args);
 	}
@@ -2130,8 +2130,8 @@ public class Test {
 	//
 	// Solidity: function setBoolArray(bool[2] b_a) returns(bool[2])
 	public Transaction setBoolArray(TransactOpts opts, Bools b_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBools(b_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBools(b_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBoolArray"	, args);
 	}
@@ -2140,8 +2140,8 @@ public class Test {
 	//
 	// Solidity: function setBoolList(bool[] b_l) returns(bool[])
 	public Transaction setBoolList(TransactOpts opts, Bools b_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBools(b_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBools(b_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBoolList"	, args);
 	}
@@ -2150,8 +2150,8 @@ public class Test {
 	//
 	// Solidity: function setBytes(bytes bs) returns(bytes)
 	public Transaction setBytes(TransactOpts opts, byte[] bs) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBinary(bs);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBinary(bs);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBytes"	, args);
 	}
@@ -2160,8 +2160,8 @@ public class Test {
 	//
 	// Solidity: function setBytes1(bytes1 b1) returns(bytes1)
 	public Transaction setBytes1(TransactOpts opts, byte[] b1) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBinary(b1);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBinary(b1);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBytes1"	, args);
 	}
@@ -2170,8 +2170,8 @@ public class Test {
 	//
 	// Solidity: function setBytes32(bytes32 b32) returns(bytes32)
 	public Transaction setBytes32(TransactOpts opts, byte[] b32) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBinary(b32);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBinary(b32);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBytes32"	, args);
 	}
@@ -2180,8 +2180,8 @@ public class Test {
 	//
 	// Solidity: function setBytesArray(bytes[2] bs_a) returns(bytes[2])
 	public Transaction setBytesArray(TransactOpts opts, Binaries bs_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBinaries(bs_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBinaries(bs_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBytesArray"	, args);
 	}
@@ -2190,8 +2190,8 @@ public class Test {
 	//
 	// Solidity: function setBytesList(bytes[] bs_l) returns(bytes[])
 	public Transaction setBytesList(TransactOpts opts, Binaries bs_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBinaries(bs_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBinaries(bs_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setBytesList"	, args);
 	}
@@ -2200,8 +2200,8 @@ public class Test {
 	//
 	// Solidity: function setInt16(int16 i16) returns(int16)
 	public Transaction setInt16(TransactOpts opts, short i16) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setInt16(i16);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setInt16(i16);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt16"	, args);
 	}
@@ -2210,8 +2210,8 @@ public class Test {
 	//
 	// Solidity: function setInt256(int256 i256) returns(int256)
 	public Transaction setInt256(TransactOpts opts, BigInt i256) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInt(i256);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInt(i256);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt256"	, args);
 	}
@@ -2220,8 +2220,8 @@ public class Test {
 	//
 	// Solidity: function setInt256Array(int256[2] i256_a) returns(int256[2])
 	public Transaction setInt256Array(TransactOpts opts, BigInts i256_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInts(i256_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInts(i256_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt256Array"	, args);
 	}
@@ -2230,8 +2230,8 @@ public class Test {
 	//
 	// Solidity: function setInt256List(int256[] i256_l) returns(int256[])
 	public Transaction setInt256List(TransactOpts opts, BigInts i256_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInts(i256_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInts(i256_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt256List"	, args);
 	}
@@ -2240,8 +2240,8 @@ public class Test {
 	//
 	// Solidity: function setInt32(int32 i32) returns(int32)
 	public Transaction setInt32(TransactOpts opts, int i32) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setInt32(i32);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setInt32(i32);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt32"	, args);
 	}
@@ -2250,8 +2250,8 @@ public class Test {
 	//
 	// Solidity: function setInt64(int64 i64) returns(int64)
 	public Transaction setInt64(TransactOpts opts, long i64) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setInt64(i64);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setInt64(i64);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt64"	, args);
 	}
@@ -2260,8 +2260,8 @@ public class Test {
 	//
 	// Solidity: function setInt8(int8 i8) returns(int8)
 	public Transaction setInt8(TransactOpts opts, byte i8) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setInt8(i8);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setInt8(i8);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setInt8"	, args);
 	}
@@ -2270,8 +2270,8 @@ public class Test {
 	//
 	// Solidity: function setString(string s) returns(string)
 	public Transaction setString(TransactOpts opts, String s) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setString(s);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setString(s);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setString"	, args);
 	}
@@ -2280,8 +2280,8 @@ public class Test {
 	//
 	// Solidity: function setStringArray(string[2] s_a) returns(string[2])
 	public Transaction setStringArray(TransactOpts opts, Strings s_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setStrings(s_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setStrings(s_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setStringArray"	, args);
 	}
@@ -2290,8 +2290,8 @@ public class Test {
 	//
 	// Solidity: function setStringList(string[] s_l) returns(string[])
 	public Transaction setStringList(TransactOpts opts, Strings s_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setStrings(s_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setStrings(s_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setStringList"	, args);
 	}
@@ -2300,8 +2300,8 @@ public class Test {
 	//
 	// Solidity: function setUint16(uint16 u16) returns(uint16)
 	public Transaction setUint16(TransactOpts opts, BigInt u16) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setUint16(u16);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setUint16(u16);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint16"	, args);
 	}
@@ -2310,8 +2310,8 @@ public class Test {
 	//
 	// Solidity: function setUint256(uint256 u256) returns(uint256)
 	public Transaction setUint256(TransactOpts opts, BigInt u256) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInt(u256);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInt(u256);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint256"	, args);
 	}
@@ -2320,8 +2320,8 @@ public class Test {
 	//
 	// Solidity: function setUint256Array(uint256[2] u256_a) returns(uint256[2])
 	public Transaction setUint256Array(TransactOpts opts, BigInts u256_a) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInts(u256_a);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInts(u256_a);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint256Array"	, args);
 	}
@@ -2330,8 +2330,8 @@ public class Test {
 	//
 	// Solidity: function setUint256List(uint256[] u256_l) returns(uint256[])
 	public Transaction setUint256List(TransactOpts opts, BigInts u256_l) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setBigInts(u256_l);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setBigInts(u256_l);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint256List"	, args);
 	}
@@ -2340,8 +2340,8 @@ public class Test {
 	//
 	// Solidity: function setUint32(uint32 u32) returns(uint32)
 	public Transaction setUint32(TransactOpts opts, BigInt u32) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setUint32(u32);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setUint32(u32);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint32"	, args);
 	}
@@ -2350,8 +2350,8 @@ public class Test {
 	//
 	// Solidity: function setUint64(uint64 u64) returns(uint64)
 	public Transaction setUint64(TransactOpts opts, BigInt u64) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setUint64(u64);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setUint64(u64);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint64"	, args);
 	}
@@ -2360,8 +2360,8 @@ public class Test {
 	//
 	// Solidity: function setUint8(uint8 u8) returns(uint8)
 	public Transaction setUint8(TransactOpts opts, BigInt u8) throws Exception {
-		Interfaces args = Geth.newInterfaces(1);
-		Interface arg0 = Geth.newInterface();arg0.setUint8(u8);args.set(0,arg0);
+		Interfaces args = Biz.newInterfaces(1);
+		Interface arg0 = Biz.newInterface();arg0.setUint8(u8);args.set(0,arg0);
 		
 		return this.Contract.transact(opts, "setUint8"	, args);
 	}

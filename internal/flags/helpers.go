@@ -1,4 +1,4 @@
-// Copyright 2020 The go-ethereum Authors
+// Copyright 2020 The go-biz Authors
 // This file is part of go-ethereum.
 //
 // go-ethereum is free software: you can redistribute it and/or modify
@@ -51,7 +51,7 @@ OPTIONS:
 	AppHelpTemplate = `NAME:
    {{.App.Name}} - {{.App.Usage}}
 
-   Copyright 2024-2027 The go-ethereum Authors
+   Copyright 2024-2027 The go-biz Authors
 
 USAGE:
    {{.App.HelpName}} [options]{{if .App.Commands}} [command] [command options]{{end}} {{if .App.ArgsUsage}}{{.App.ArgsUsage}}{{else}}[arguments...]{{end}}
@@ -72,12 +72,14 @@ COMMANDS:
 COPYRIGHT:
    {{.App.Copyright}}
    {{end}}
+
+
 `
 	// ClefAppHelpTemplate is the template for the default, global app help topic.
 	ClefAppHelpTemplate = `NAME:
    {{.App.Name}} - {{.App.Usage}}
 
-   Copyright 2024-2027 The go-ethereum Authors
+   Copyright 2024-2027 The go-biz Authors
 
 USAGE:
    {{.App.HelpName}} [options]{{if .App.Commands}} command [command options]{{end}} {{if .App.ArgsUsage}}{{.App.ArgsUsage}}{{else}}[arguments...]{{end}}
@@ -89,8 +91,6 @@ COMMANDS:
   {{range .Flags}}{{.}}
   {{end}}
 {{end}}{{end}}{{if .App.Copyright }}
-COPYRIGHT:
-   {{.App.Copyright}}
    {{end}}
 `
 )

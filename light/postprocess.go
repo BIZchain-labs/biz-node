@@ -1,4 +1,4 @@
-// Copyright 2017 The go-ethereum Authors
+// Copyright 2017 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -25,7 +25,6 @@ import (
 	"math/big"
 	"time"
 
-	mapset "github.com/deckarep/golang-set"
 	"github.com/BIZchain-labs/biz-node/common"
 	"github.com/BIZchain-labs/biz-node/common/bitutil"
 	"github.com/BIZchain-labs/biz-node/core"
@@ -36,6 +35,7 @@ import (
 	"github.com/BIZchain-labs/biz-node/params"
 	"github.com/BIZchain-labs/biz-node/rlp"
 	"github.com/BIZchain-labs/biz-node/trie"
+	mapset "github.com/deckarep/golang-set"
 )
 
 // IndexerConfig includes a set of configs for chain indexers.

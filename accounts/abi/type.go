@@ -1,4 +1,4 @@
-// Copyright 2015 The go-ethereum Authors
+// Copyright 2015 The go-biz Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -404,7 +404,6 @@ func getTypeSize(t Type) int {
 	}
 	return 32
 }
-
 
 // isLetter reports whether a given 'rune' is classified as a Letter.
 // This method is copied from reflect/type.go
